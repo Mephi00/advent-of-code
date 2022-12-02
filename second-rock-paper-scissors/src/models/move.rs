@@ -1,60 +1,6 @@
 use std::cmp::Ordering;
 
-#[derive(Debug)]
-pub struct Match(pub Move, pub Move);
-
-impl Match {
-    pub fn get_result(&self) -> u16 {
-        let mut points: u8 = 0;
-
-        if self.0 < self.1 {
-            points += 6;
-        } else if self.0 == self.1 {
-            points += 3
-        }
-
-        points += self.1.get_score();
-
-        points.into()
-    }
-}
-
-#[derive(Debug)]
-pub struct MatchByResult(pub Move, pub EndResult);
-
-impl MatchByResult {
-    pub fn get_result(&self) -> u16 {
-        let mut points: u8 = 0;
-
-        match &self.1 {
-            EndResult::Lose => {}
-            EndResult::Draw => points += 3,
-            EndResult::Win => points += 6,
-        }
-
-        points += self.0.get_target_move(&self.1).get_score();
-
-        points.into()
-    }
-}
-
-#[derive(Debug)]
-pub enum EndResult {
-    Lose,
-    Draw,
-    Win,
-}
-
-impl EndResult {
-    pub fn new(char: char) -> Result<EndResult, ()> {
-        match char {
-            'X' => Ok(EndResult::Lose),
-            'Y' => Ok(EndResult::Draw),
-            'Z' => Ok(EndResult::Win),
-            _ => Err(()),
-        }
-    }
-}
+use super::end_result::EndResult;
 
 #[derive(Debug)]
 pub enum Move {
@@ -97,7 +43,7 @@ impl Move {
         }
     }
 
-    fn get_score(&self) -> u8 {
+    pub fn get_score(&self) -> u8 {
         match &self {
             Self::Rock => 1,
             Self::Paper => 2,

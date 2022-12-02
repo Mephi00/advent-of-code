@@ -1,10 +1,10 @@
 use std::fs::read_to_string;
 
-use move_mod::{Match, Move};
+use crate::models::{
+    end_result::EndResult, match_by_result::MatchByResult, r#match::Match, r#move::Move,
+};
 
-use crate::move_mod::{EndResult, MatchByResult};
-
-mod move_mod;
+mod models;
 
 fn main() {
     let input_str = read_to_string("input.txt").expect("expected to read input.txt");
