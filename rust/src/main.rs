@@ -30,7 +30,7 @@ fn main() {
             println!("Input is outside the expected days");
             continue;
         } else {
-            let input_str_res = read_to_string(format!("inputs/input_{}.txt", date));
+            let input_str_res = read_to_string(format!("../inputs/input_{}.txt", date));
 
             if input_str_res.is_err() {
                 println!("Input is not yet supported");
