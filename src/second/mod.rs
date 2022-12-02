@@ -1,17 +1,9 @@
-use std::fs::read_to_string;
-
-use crate::models::{
-    end_result::EndResult, match_by_result::MatchByResult, r#match::Match, r#move::Move,
-};
+use models::{end_result::EndResult, match_by_result::MatchByResult, r#match::Match, r#move::Move};
 
 mod models;
 
-fn main() {
-    let input_str = read_to_string("input.txt").expect("expected to read input.txt");
-
+pub fn main(input_str: &String) {
     let input_list: Vec<&str> = input_str.split('\n').collect();
-
-    println!("amount of lines: {}", input_list.len());
 
     let mut matches = Vec::new();
     let mut matches_by_result = Vec::new();
@@ -32,12 +24,12 @@ fn main() {
         }
     }
     println!(
-        "total: {}",
+        "total score: {}",
         matches.iter().map(|a| a.get_result()).sum::<u16>()
     );
 
     println!(
-        "total by result: {}",
+        "total score by expected result: {}",
         matches_by_result
             .iter()
             .map(|a| a.get_result())

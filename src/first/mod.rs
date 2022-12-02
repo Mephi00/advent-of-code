@@ -1,12 +1,8 @@
-use std::fs::read_to_string;
-
-use crate::elve::Elve;
+use elve::Elve;
 
 mod elve;
 
-fn main() -> Result<(), std::io::Error> {
-    let input_str = read_to_string("input.txt")?;
-
+pub fn main(input_str: &String) {
     let input_list: Vec<&str> = input_str.split("\n").collect();
 
     let mut elves = Vec::new();
@@ -25,11 +21,9 @@ fn main() -> Result<(), std::io::Error> {
     let top_three_total = calc_top_three_total(elves);
 
     println!(
-        "single max value: {}\ntop three total: {}",
+        "single max calories: {}\ntop three total: {}",
         max, top_three_total
     );
-
-    Ok(())
 }
 
 fn calc_top_three_total(mut elves: Vec<Elve>) -> u32 {
