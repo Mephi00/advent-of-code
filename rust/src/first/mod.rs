@@ -1,6 +1,6 @@
-use elve::Elve;
+use elf::Elf;
 
-mod elve;
+mod elf;
 
 pub fn main(input_str: &String) {
     let input_list: Vec<&str> = input_str.split("\n").collect();
@@ -12,7 +12,7 @@ pub fn main(input_str: &String) {
         if !item.is_empty() {
             buff.push(item.parse::<u32>().expect("couldnt parse input as u32"));
         } else {
-            elves.push(Elve::new(buff.clone()));
+            elves.push(Elf::new(buff.clone()));
             buff = Vec::new();
         }
     }
@@ -26,7 +26,7 @@ pub fn main(input_str: &String) {
     );
 }
 
-fn calc_top_three_total(mut elves: Vec<Elve>) -> u32 {
+fn calc_top_three_total(mut elves: Vec<Elf>) -> u32 {
     elves.sort_by(|a, b| b.cmp(a));
 
     let mut total = 0;

@@ -1,19 +1,19 @@
 #[derive(Debug)]
-pub struct Elve {
+pub struct Elf {
     calories: Vec<u32>,
     pub total: u32,
 }
 
-impl Elve {
-    pub fn new(calories: Vec<u32>) -> Elve {
-        Elve {
+impl Elf {
+    pub fn new(calories: Vec<u32>) -> Elf {
+        Elf {
             total: calories.clone().iter().sum(),
             calories: calories,
         }
     }
 }
 
-impl PartialEq for Elve {
+impl PartialEq for Elf {
     fn eq(&self, other: &Self) -> bool {
         self.calories == other.calories && self.total == other.total
     }
@@ -23,9 +23,9 @@ impl PartialEq for Elve {
     }
 }
 
-impl Eq for Elve {}
+impl Eq for Elf {}
 
-impl PartialOrd for Elve {
+impl PartialOrd for Elf {
     fn ge(&self, other: &Self) -> bool {
         self.total >= other.total
     }
@@ -59,7 +59,7 @@ impl PartialOrd for Elve {
     }
 }
 
-impl Ord for Elve {
+impl Ord for Elf {
     fn cmp(&self, other: &Self) -> std::cmp::Ordering {
         self.partial_cmp(other).unwrap()
     }
