@@ -2,6 +2,7 @@ use std::fs::read_to_string;
 
 mod first;
 mod second;
+mod third;
 
 fn main() {
     let mut date: i32;
@@ -45,6 +46,7 @@ fn main() {
     match date {
         1 => first::main(&input_str),
         2 => second::main(&input_str),
+        3 => third::main(&input_str),
         _ => println!("Not supported yet"),
     };
 }
