@@ -1,6 +1,7 @@
 use std::fs::read_to_string;
 
 mod first;
+mod fourth;
 mod second;
 mod third;
 
@@ -47,6 +48,7 @@ fn main() {
         1 => first::main(&input_str),
         2 => second::main(&input_str),
         3 => third::main(&input_str),
+        4 => fourth::main(&input_str),
         _ => println!("Not supported yet"),
     };
 }
