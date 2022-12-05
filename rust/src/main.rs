@@ -1,5 +1,6 @@
 use std::fs::read_to_string;
 
+mod fifth;
 mod first;
 mod fourth;
 mod second;
@@ -44,11 +45,14 @@ fn main() {
         }
     }
 
+    println!("-----------------------------results-------------------------------");
+
     match date {
         1 => first::main(&input_str),
         2 => second::main(&input_str),
         3 => third::main(&input_str),
         4 => fourth::main(&input_str),
+        5 => fifth::main(&input_str),
         _ => println!("Not supported yet"),
     };
 }
