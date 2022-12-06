@@ -4,6 +4,7 @@ mod fifth;
 mod first;
 mod fourth;
 mod second;
+mod sixth;
 mod third;
 
 fn main() {
@@ -53,6 +54,7 @@ fn main() {
         3 => third::main(&input_str),
         4 => fourth::main(&input_str),
         5 => fifth::main(&input_str),
+        6 => sixth::main(&input_str),
         _ => println!("Not supported yet"),
     };
 }
