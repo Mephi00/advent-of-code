@@ -1,5 +1,6 @@
 use std::fs::read_to_string;
 
+mod eighth;
 mod fifth;
 mod first;
 mod fourth;
@@ -9,27 +10,32 @@ mod sixth;
 mod third;
 
 fn main() {
+    let debug_day = 8;
     let mut date: i32;
     let input_str;
     loop {
-        println!("Input the day:");
-        let mut input = String::new();
-        let std_in = std::io::stdin().read_line(&mut input);
+        if debug_day > 0 {
+            date = debug_day;
+        } else {
+            println!("Input the day:");
+            let mut input = String::new();
+            let std_in = std::io::stdin().read_line(&mut input);
 
-        if std_in.is_err() {
-            println!("Couldn't read the input");
-            continue;
-        }
-
-        input = input.trim().to_string();
-
-        date = match input.parse() {
-            Ok(num) => num,
-            Err(_) => {
-                println!("Couldn't parse the input to a number");
+            if std_in.is_err() {
+                println!("Couldn't read the input");
                 continue;
             }
-        };
+
+            input = input.trim().to_string();
+
+            date = match input.parse() {
+                Ok(num) => num,
+                Err(_) => {
+                    println!("Couldn't parse the input to a number");
+                    continue;
+                }
+            };
+        }
 
         if date > 25 || date < 1 {
             println!("Input is outside the expected days");
@@ -57,6 +63,7 @@ fn main() {
         5 => fifth::main(&input_str),
         6 => sixth::main(&input_str),
         7 => seventh::main(&input_str),
+        8 => eighth::main(&input_str),
         _ => println!("Not supported yet"),
     };
 }
