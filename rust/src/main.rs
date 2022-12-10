@@ -4,13 +4,14 @@ mod eighth;
 mod fifth;
 mod first;
 mod fourth;
+mod ninth;
 mod second;
 mod seventh;
 mod sixth;
 mod third;
 
 fn main() {
-    let debug_day = 8;
+    let debug_day = 9;
     let mut date: i32;
     let input_str;
     loop {
@@ -64,6 +65,7 @@ fn main() {
         6 => sixth::main(&input_str),
         7 => seventh::main(&input_str),
         8 => eighth::main(&input_str),
+        9 => ninth::main(&input_str),
         _ => println!("Not supported yet"),
     };
 }
