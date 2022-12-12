@@ -1,6 +1,7 @@
 use std::fs::read_to_string;
 
 mod eighth;
+mod eleventh;
 mod fifth;
 mod first;
 mod fourth;
@@ -12,7 +13,7 @@ mod tenth;
 mod third;
 
 fn main() {
-    let debug_day = 10;
+    let debug_day = 11;
     let mut date: i32;
     let input_str;
     loop {
@@ -68,6 +69,7 @@ fn main() {
         8 => eighth::main(&input_str),
         9 => ninth::main(&input_str),
         10 => tenth::main(&input_str),
+        11 => eleventh::main(&input_str),
         _ => println!("Not supported yet"),
     };
 }
