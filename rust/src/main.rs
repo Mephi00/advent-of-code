@@ -11,9 +11,10 @@ mod seventh;
 mod sixth;
 mod tenth;
 mod third;
+mod twelth;
 
 fn main() {
-    let debug_day = 11;
+    let debug_day = 12;
     let mut date: i32;
     let input_str;
     loop {
@@ -70,6 +71,7 @@ fn main() {
         9 => ninth::main(&input_str),
         10 => tenth::main(&input_str),
         11 => eleventh::main(&input_str),
+        12 => twelth::main(&input_str),
         _ => println!("Not supported yet"),
     };
 }
