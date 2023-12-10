@@ -1,25 +1,29 @@
 use std::fs::read_to_string;
 
-mod eighth;
-mod eleventh;
-mod fifth;
-mod first;
-mod fourth;
-mod ninth;
-mod second;
-mod seventh;
-mod sixth;
-mod tenth;
-mod third;
-mod thirteenth;
-mod twelth;
+mod eight;
+mod five;
+mod four;
+mod one;
+mod seven;
+mod six;
+mod three;
+mod two;
 
 fn main() {
-    let debug_day = 13;
+    let debug_day = 8;
     let mut date: i32;
+    let mut filename;
     let input_str;
     loop {
         if debug_day > 0 {
+            println!("Test input?: [y/n]");
+            let mut input = String::new();
+            let _ = std::io::stdin().read_line(&mut input);
+            if input.trim().to_lowercase() == "y" {
+                filename = "test".to_string();
+            } else {
+                filename = debug_day.to_string();
+            }
             date = debug_day;
         } else {
             println!("Input the day:");
@@ -40,13 +44,14 @@ fn main() {
                     continue;
                 }
             };
+            filename = date.to_string();
         }
 
         if date > 25 || date < 1 {
             println!("Input is outside the expected days");
             continue;
         } else {
-            let input_str_res = read_to_string(format!("../inputs/input_{}.txt", date));
+            let input_str_res = read_to_string(format!("../inputs/input_{}.txt", filename));
 
             if input_str_res.is_err() {
                 println!("Input is not yet supported");
@@ -61,19 +66,14 @@ fn main() {
     println!("-----------------------------results-------------------------------");
 
     match date {
-        1 => first::main(&input_str),
-        2 => second::main(&input_str),
-        3 => third::main(&input_str),
-        4 => fourth::main(&input_str),
-        5 => fifth::main(&input_str),
-        6 => sixth::main(&input_str),
-        7 => seventh::main(&input_str),
-        8 => eighth::main(&input_str),
-        9 => ninth::main(&input_str),
-        10 => tenth::main(&input_str),
-        11 => eleventh::main(&input_str),
-        12 => twelth::main(&input_str),
-        13 => thirteenth::main(&input_str),
+        1 => one::exec(input_str),
+        2 => two::exec(input_str),
+        3 => three::exec(input_str),
+        4 => four::exec(input_str),
+        5 => five::exec(input_str),
+        6 => six::exec(input_str),
+        7 => seven::exec(input_str),
+        8 => eight::exec(input_str),
         _ => println!("Not supported yet"),
     };
 }
