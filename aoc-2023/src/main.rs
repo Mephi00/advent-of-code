@@ -7,11 +7,12 @@ mod nine;
 mod one;
 mod seven;
 mod six;
+mod ten;
 mod three;
 mod two;
 
 fn main() {
-    let debug_day = 9;
+    let debug_day = 10;
     let mut date: i32;
     let mut filename;
     let input_str;
@@ -76,6 +77,7 @@ fn main() {
         7 => seven::exec(input_str),
         8 => eight::exec(input_str),
         9 => nine::exec(input_str),
+        10 => ten::exec(input_str),
         _ => println!("Not supported yet"),
     };
 }
