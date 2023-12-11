@@ -3,6 +3,7 @@ use std::fs::read_to_string;
 mod eight;
 mod five;
 mod four;
+mod nine;
 mod one;
 mod seven;
 mod six;
@@ -10,7 +11,7 @@ mod three;
 mod two;
 
 fn main() {
-    let debug_day = 8;
+    let debug_day = 9;
     let mut date: i32;
     let mut filename;
     let input_str;
@@ -51,7 +52,7 @@ fn main() {
             println!("Input is outside the expected days");
             continue;
         } else {
-            let input_str_res = read_to_string(format!("../inputs/input_{}.txt", filename));
+            let input_str_res = read_to_string(format!("./inputs/input_{}.txt", filename));
 
             if input_str_res.is_err() {
                 println!("Input is not yet supported");
@@ -74,6 +75,7 @@ fn main() {
         6 => six::exec(input_str),
         7 => seven::exec(input_str),
         8 => eight::exec(input_str),
+        9 => nine::exec(input_str),
         _ => println!("Not supported yet"),
     };
 }

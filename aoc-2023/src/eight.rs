@@ -1,7 +1,6 @@
 use std::collections::HashMap;
 
 pub fn exec(input_str: String) {
-    println!("{}", greatest_common_factor(&[143, 65, 13 * 234782]));
     println!("part one: {}", part_one(&input_str));
     println!("part two: {}", part_two(&input_str));
 }
@@ -103,10 +102,10 @@ fn part_two(input_str: &String) -> usize {
         }
     }
 
-    largest_common_multiplier(&results)
+    lowest_common_multiplier(&results)
 }
 
-fn largest_common_multiplier(numbers: &[usize]) -> usize {
+fn lowest_common_multiplier(numbers: &[usize]) -> usize {
     let gg_t = greatest_common_factor(numbers);
     gg_t * numbers.iter().map(|n| n / gg_t).product::<usize>()
 }
